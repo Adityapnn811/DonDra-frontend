@@ -1,0 +1,12 @@
+- setup tailwind (udah)
+- https://v1.tailwindcss.com/components/forms (buat login dan register)
+- ganti font (udah)
+- pindahin component dari proyek dulu
+- save base64 ke file fisik di backend
+- buat dashboard admin dan user biasa
+- responsive
+
+Homenya admin itu search user
+homenya user itu profil dan saldo
+
+bentuk saldo dan profil mungkin bisa pake card, tapi masi ga kebayang
