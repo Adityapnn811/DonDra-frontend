@@ -18,7 +18,7 @@ function getUnverifiedUsers(){
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${getCookie('token')}`
         },
-    })
+    }).then(res => res.json())
 }
 
 export default function VerifyUser(){

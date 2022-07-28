@@ -37,14 +37,14 @@ function Navbar(){
                 <div className="py-3 mx-auto">
                     <div className="flex items-center justify-center">
                         <ul className="flex flex-row mt-0 mr-6 space-x-2 md:space-x-8 text-sm md:text-lg font-medium">
-                            <li>
+                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
                                 <Link href="/" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md" aria-current="page">Home</Link>
                             </li>
-                            <li>
+                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
                                 <Link href="verifyUser" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Verify User</Link>
                             </li>
-                            <li>
-                                <Link href="#" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Verify Transaction</Link>
+                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
+                                <Link href="#" >Verify Transaction</Link>
                             </li>
                         </ul>
                     </div>
@@ -76,16 +76,16 @@ function Navbar(){
                 <div className="py-3 mx-auto">
                     <div className="flex items-center justify-center">
                         <ul className="flex flex-row mt-0 mr-6 space-x-2 md:space-x-8 text-sm md:text-lg font-medium">
-                            <li>
+                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
                                 <Link href="/" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md" aria-current="page">Home</Link>
                             </li>
-                            <li>
+                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
                                 <Link href="#" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Transfer</Link>
                             </li>
-                            <li>
+                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
                                 <Link href="#" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Request</Link>
                             </li>
-                            <li>
+                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
                                 <Link href="#" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">History</Link>
                             </li>
                         </ul>
