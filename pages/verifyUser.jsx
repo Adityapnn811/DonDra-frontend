@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import { getCookie, hasCookie } from 'cookies-next';
 import Link from 'next/link'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 const role = getCookie('role');
