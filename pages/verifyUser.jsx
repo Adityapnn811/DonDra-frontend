@@ -39,9 +39,8 @@ export default function VerifyUser(){
                     'Authorization': `Bearer ${getCookie('token')}`,
                     'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
                 },
-            }).then(res => res.json())
-            .then(data => {
-                setUnverifiedUsers(data)
+            }).then(res => {
+                setUnverifiedUsers(res.json())
                 setLoading(false)
             })
         }
