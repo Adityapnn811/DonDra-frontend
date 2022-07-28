@@ -3,12 +3,15 @@ import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Login(){
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [fotoKTP, setFotoKTP] = useState('');
+    const [error, setError] = useState('')
+    const router = useRouter()
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -36,6 +39,7 @@ export default function Login(){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('')
         const userData = {
             nama: name,
             username: username,
@@ -58,6 +62,12 @@ export default function Login(){
         const response = await fetch(endpoint, options);
         const data = await response.json();
         console.log(data);
+        if (response.status === 200) {
+            alert('Register Success. You will be redirected to the login page')
+            router.push('/login');
+        } else {
+            setError(data.error)
+        }
     }
 
     return (
@@ -97,7 +107,7 @@ export default function Login(){
                         </div>
                         <div className='mb-6'>
                             <label className="block text-slate-800 text-md font-bold mb-2" htmlFor="file_input">Upload file</label>
-                            <input className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" accept='image/*' onChange={handleUploadImage}></input>
+                            <input className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" accept='image/*' onChange={handleUploadImage} required></input>
                         </div>
                         <div className="flex items-center justify-left">
                             <button className="bg-button-bg hover:bg-button-bg-hover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-4" type="submit" >
@@ -112,6 +122,7 @@ export default function Login(){
                         </div>
                     </form>
                 </div>
+                <div className='w-full px-2 text-red-800 bg-red-100 rounded font-bold'>{error}</div>
                 </Card>
             </main>
         </div>

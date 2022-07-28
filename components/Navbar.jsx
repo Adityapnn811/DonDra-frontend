@@ -1,20 +1,21 @@
 import Link from "next/dist/client/link"
+import {deleteCookie, getCookie} from 'cookies-next';
+import deleteAllCookie from "../pages/middleware/deleteAllCookie";
 
 function NavbarUser(){
     return (
-
     <div className="flex flex-col">   
-        <nav className="bg-primary border-gray-200 dark:bg-gray-900 flex">
-            <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
+        <nav className="bg-primary border-gray-200 dark:bg-gray-900">
+            <div className="flex flex-wrap justify-between items-center mx-auto px-4 md:px-10 py-3">
                 <Link href="/" className="flex items-center ">
                     <span className="self-center text-xl md:text-3xl font-semibold whitespace-nowrap text-white hover:cursor-pointer">DonDra</span>
                 </Link>
-                <div className="flex items-center">
+                <div className="flex items-center text-lg">
                     <h3 className="text-white font-semibold mx-5">
-                        Nama
+                        {getCookie('nama')}
                     </h3>
                     <Link href="#">
-                        <button className="bg-red-500 px-3 py-1 text-black font-bold rounded-md hover:bg-red-700">
+                        <button className="bg-red-500 px-3 py-1 text-black font-bold rounded-md hover:bg-red-700" onClick={deleteAllCookie}>
                             Logout  
                         </button>
                     </Link>
@@ -58,7 +59,7 @@ function NavbarAdmin(){
                         Admin
                     </h3>
                     <Link href="#">
-                        <button className="bg-red-500 px-3 py-1 text-black font-bold rounded-md hover:bg-red-700">
+                        <button className="bg-red-500 px-3 py-1 text-black font-bold rounded-md hover:bg-red-700" onClick={deleteAllCookie}>
                             Logout  
                         </button>
                     </Link>

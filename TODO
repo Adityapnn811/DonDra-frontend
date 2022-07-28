@@ -5,6 +5,9 @@
 - save base64 ke file fisik di backend
 - buat dashboard admin dan user biasa
 - responsive
+- Setup CI
+- Kurang jwt 
+- error message saat login
 
 Homenya admin itu search user
 homenya user itu profil dan saldo

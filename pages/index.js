@@ -1,20 +1,45 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 import React, { useEffect } from "react";
 // import {Login} from './Login'
 import styles from '../styles/Home.module.css'
 import {Navbar} from '../components/Navbar';
+import { hasCookie, getCookie } from 'cookies-next';
+
+// export async function getServerSideProps({req, res}) {
+//   const session = await (getSession({req, res}))
+  
+//   if (!session || session === undefined){
+//     return {
+//       redirect: {
+//         permanent: false,
+//         destination: '/login'
+//       }
+//     }
+//   }
+//   return {
+//     props: {
+//       status: "OK"
+//     }
+//   }
+// }
+function getRole(){
+  if (getCookie('role') === 'admin'){
+    return true;
+  }
+  return false;
+}
 
 export default function Home() {
   let page = "aa"
-  let loggedIn = true
-  if (!loggedIn) {
-    useEffect(() => {
-      const {pathname} = Router
-      Router.push("/login")
-    })
-  }
+  const router = useRouter()
+  useEffect(() => {
+    if (!hasCookie('token')) {
+      router.push("/login")
+    }
+  })
+  let isAdmin = getRole()
   return (
     <div>
       <Head>
@@ -28,7 +53,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className='flex-1 w-full'>
-          <Navbar isAdmin={true}/>
+          <Navbar isAdmin={isAdmin}/>
           {page}
 
         </div>
