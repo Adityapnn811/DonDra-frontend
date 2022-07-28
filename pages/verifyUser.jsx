@@ -16,7 +16,8 @@ function getUnverifiedUsers(){
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${getCookie('token')}`
+            'Authorization': `Bearer ${getCookie('token')}`,
+            'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
         },
     }).then(res => res.json())
 }
