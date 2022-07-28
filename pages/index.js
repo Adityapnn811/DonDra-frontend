@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import {Login} from './Login'
 import styles from '../styles/Home.module.css'
 import {Navbar} from '../components/Navbar';
