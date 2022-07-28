@@ -45,6 +45,7 @@ export default function Login(){
         // if success, set cookies and redirect to home
         if (data.success){
             // set token from data response
+            console.log(data.token);
             setCookie('token', data.token);
             setCookie('role', data.user.role);
             setCookie('nama', data.user.nama);

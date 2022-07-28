@@ -7,30 +7,6 @@ import styles from '../styles/Home.module.css'
 import {Navbar} from '../components/Navbar';
 import { hasCookie, getCookie } from 'cookies-next';
 
-// export async function getServerSideProps({req, res}) {
-//   const session = await (getSession({req, res}))
-  
-//   if (!session || session === undefined){
-//     return {
-//       redirect: {
-//         permanent: false,
-//         destination: '/login'
-//       }
-//     }
-//   }
-//   return {
-//     props: {
-//       status: "OK"
-//     }
-//   }
-// }
-function getRole(){
-  if (getCookie('role') === 'admin'){
-    return true;
-  }
-  return false;
-}
-
 export default function Home() {
   let page = "aa"
   const router = useRouter()
@@ -39,7 +15,6 @@ export default function Home() {
       router.push("/login")
     }
   })
-  let isAdmin = getRole()
   return (
     <div>
       <Head>
@@ -53,15 +28,11 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className='flex-1 w-full'>
-          <Navbar isAdmin={isAdmin}/>
-          {page}
+           <Navbar /> 
 
         </div>
       </main>
 
-      <footer className={styles.footer}>
-       
-      </footer>
     </div>
   )
 }

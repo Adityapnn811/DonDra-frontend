@@ -2,6 +2,7 @@ import Card from '../components/Card';
 import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -28,7 +29,7 @@ export default function Login(){
             const reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = () => resolve(reader.result);
-            reader.onerror = error => reject(error);
+            reader.onerror = (error) => reject(error);
         })
         imageInBase64.then((imageData) => {
             setFotoKTP(imageData);
@@ -49,6 +50,7 @@ export default function Login(){
 
         const JSONdata = JSON.stringify(userData);
         const endpoint = 'https://dondra-backend.herokuapp.com/register';
+        // const endpoint = 'http://localhost:3001/register';
 
         const options = {
             method: 'POST',
@@ -124,6 +126,7 @@ export default function Login(){
                 </div>
                 <div className='w-full px-2 text-red-800 bg-red-100 rounded font-bold'>{error}</div>
                 </Card>
+                {fotoKTP ? <img src={fotoKTP} /> : <></>}
             </main>
         </div>
     )
