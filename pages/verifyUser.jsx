@@ -40,8 +40,10 @@ export default function VerifyUser(){
                     'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
                 },
             }).then(res => {
-                setUnverifiedUsers(res.json())
-                setLoading(false)
+                res.json().then(data => {
+                    setUnverifiedUsers(data)
+                    setLoading(false)
+                })
             })
         }
     })
