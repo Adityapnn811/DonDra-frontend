@@ -24,13 +24,29 @@ function getUnverifiedUsers(){
 
 export default function VerifyUser(){
     const router = useRouter()
+    const [unverifiedUsers, setUnverifiedUsers] = useState(null);
+    const [loading, setLoading] = useState('')
     useEffect(() => {
+        setLoading(true)
         if (!hasCookie('token')) {
-        router.push("/login")
+            router.push("/login")
+        } else {
+            fetch('https://dondra-backend.herokuapp.com/getUnverifiedUsers', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${getCookie('token')}`,
+                    'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
+                },
+            }).then(res => res.json())
+            .then(data => {
+                setUnverifiedUsers(data)
+                setLoading(false)
+            })
         }
     })
 
-    const unverifiedUsers = getUnverifiedUsers()
     console.log(unverifiedUsers)
 
     return (
