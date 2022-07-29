@@ -3,17 +3,22 @@ import {deleteCookie, getCookie, hasCookie} from 'cookies-next';
 import deleteAllCookie from "../pages/middleware/deleteAllCookie";
 import { useEffect } from "react";
 
-const isAdmin = () => {
+function isAdmin(){
     if(hasCookie('role')){
-        return getCookie('role') === 'admin' ? true : false
+        if (getCookie('role') === 'admin'){
+            return true
+        } else {
+            return false
+        }
     }else{
         return false
     }
-};
+}
 
 function Navbar(){
     const nama = getCookie('nama');
-    if (isAdmin) {      
+    const roleAdmin = isAdmin()
+    if (roleAdmin) {      
         return (
         <div className="flex flex-col">   
             <nav className="bg-primary border-gray-200 dark:bg-gray-900">

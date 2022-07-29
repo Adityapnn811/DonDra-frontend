@@ -7,6 +7,7 @@ import { getCookie, hasCookie } from 'cookies-next';
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import fetchData from './middleware/fetchData';
 
 const role = getCookie('role');
 
@@ -22,7 +23,34 @@ function getUnverifiedUsers(){
     }).then(res => res.json())
 }
 
-export default function VerifyUser(){
+// export const getStaticProps = async () => {
+//     const url = 'https://dondra-backend.herokuapp.com/getUnverifiedUsers'
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json',
+//             'Authorization': `Bearer ${getCookie('token')}`,
+//             'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
+//         },
+//     }
+//     const unverifiedUsers = await fetch('https://dondra-backend.herokuapp.com/getUnverifiedUsers', {
+//         method: 'GET',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json',
+//             'Authorization': `Bearer ${getCookie('token')}`,
+//             'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
+//         },
+//     }).then(res => res.json().then(data => data))
+//     return {
+//         props: {
+//             unverifiedUsers: unverifiedUsers
+//         }
+//     }
+// }
+
+export default function VerifyUser() {
     const router = useRouter()
     const [unverifiedUsers, setUnverifiedUsers] = useState(null);
     const [loading, setLoading] = useState('')
