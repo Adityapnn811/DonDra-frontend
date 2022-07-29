@@ -1,17 +1,14 @@
-import Card from '../components/Card';
 import VerifyingUserCard from '../components/VerifyingUserCard';
 import { Navbar } from '../components/Navbar';
-import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import { getCookie, hasCookie } from 'cookies-next';
-import Link from 'next/link'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import fetchData from './middleware/fetchData';
+import useSwR from 'swr';
 
 const role = getCookie('role');
 
-function getUnverifiedUsers(){
+const fetcher = async () => {
     return fetch('https://dondra-backend.herokuapp.com/getUnverifiedUsers', {
         method: 'GET',
         headers: {
@@ -20,63 +17,21 @@ function getUnverifiedUsers(){
             'Authorization': `Bearer ${getCookie('token')}`,
             'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
         },
-    }).then(res => res.json())
+    }).then(res =>
+        res.json()
+    )
 }
+const url = 'https://dondra-backend.herokuapp.com/getUnverifiedUsers'
 
-// export const getStaticProps = async () => {
-//     const url = 'https://dondra-backend.herokuapp.com/getUnverifiedUsers'
-//     const options = {
-//         method: 'GET',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json',
-//             'Authorization': `Bearer ${getCookie('token')}`,
-//             'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
-//         },
-//     }
-//     const unverifiedUsers = await fetch('https://dondra-backend.herokuapp.com/getUnverifiedUsers', {
-//         method: 'GET',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json',
-//             'Authorization': `Bearer ${getCookie('token')}`,
-//             'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
-//         },
-//     }).then(res => res.json().then(data => data))
-//     return {
-//         props: {
-//             unverifiedUsers: unverifiedUsers
-//         }
-//     }
-// }
-
-export default function VerifyUser() {
+export default function VerifyUser(){
     const router = useRouter()
-    const [unverifiedUsers, setUnverifiedUsers] = useState(null);
-    const [loading, setLoading] = useState('')
     useEffect(() => {
-        setLoading(true)
         if (!hasCookie('token')) {
             router.push("/login")
-        } else {
-            fetch('https://dondra-backend.herokuapp.com/getUnverifiedUsers', {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${getCookie('token')}`,
-                    'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
-                },
-            }).then(res => {
-                res.json().then(data => {
-                    setUnverifiedUsers(data)
-                    setLoading(false)
-                })
-            })
-        }
+        } 
     })
-
-    console.log(unverifiedUsers)
+    // get unverified users
+    const {data: users, _error} = useSwR(url, fetcher)
 
     return (
         <div>
@@ -89,11 +44,11 @@ export default function VerifyUser() {
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;800&family=Ramaraja&display=swap" rel="stylesheet"/> 
             </Head>
 
-            <main className={styles.main}>
-                <div className='flex-1 w-full'>
-                <Navbar />
-                <VerifyingUserCard/>
-                </div>
+            <main className='flex w-full min-h-screen flex-col'>
+                    <Navbar />
+                    {users ? users.map(user => {
+                        return <VerifyingUserCard nama={user.nama} id={user.id} photo={user.fotoKTP} username={user.username} key={user.id}/>
+                    }) : <div className='text-2xl text-white font-bold self-center mt-10'>No Incoming Request</div>}
             </main>
     </div>
     )

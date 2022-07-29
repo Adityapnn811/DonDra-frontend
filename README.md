@@ -38,3 +38,6 @@ Ganti background global di layout.jsx
 
 ## How to run
 `npm run dev`
+
+## run redis
+docker run -p 6379:6379 --name my-redis -d redis

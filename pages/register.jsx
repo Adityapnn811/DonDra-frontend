@@ -126,7 +126,6 @@ export default function Login(){
                 </div>
                 <div className='w-full px-2 text-red-800 bg-red-100 rounded font-bold'>{error}</div>
                 </Card>
-                {fotoKTP ? <img src={fotoKTP} /> : <></>}
             </main>
         </div>
     )

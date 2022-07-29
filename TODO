@@ -6,9 +6,10 @@
 - buat dashboard admin dan user biasa
 - responsive
 - Setup CI
-- Kurang jwt 
-- error message saat login
-- Kurang page verifyUser
+- Kurang jwt (udah)
+- error message saat login (udah)
+- Kurang page verifyUser (udah)
+- Tampilin dropdown mata uang yang tersedia apa aja, trus nanti konversi dari mata uang asing ke IDR dari frontend aja
 
 Homenya admin itu search user
 homenya user itu profil dan saldo

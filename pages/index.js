@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import styles from '../styles/Home.module.css'
 import {Navbar} from '../components/Navbar';
 import { hasCookie, getCookie } from 'cookies-next';
+import AdminDashboard from '../components/AdminDashboard';
 
 export default function Home() {
   let page = "aa"
@@ -41,11 +42,9 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;800&family=Ramaraja&display=swap" rel="stylesheet"/> 
       </Head>
 
-      <main className={styles.main}>
-        <div className='flex-1 w-full'>
+      <main className="flex w-full min-h-screen flex-col">
            <Navbar /> 
-
-        </div>
+          <AdminDashboard />
       </main>
 
     </div>

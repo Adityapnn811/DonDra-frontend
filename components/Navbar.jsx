@@ -17,8 +17,8 @@ function isAdmin(){
 
 function Navbar(){
     const nama = getCookie('nama');
-    const roleAdmin = isAdmin()
-    if (roleAdmin) {      
+    
+    if (isAdmin()) {      
         return (
         <div className="flex flex-col">   
             <nav className="bg-primary border-gray-200 dark:bg-gray-900">
@@ -41,14 +41,14 @@ function Navbar(){
             <nav className="bg-secondary w-full md:mx-10 md:w-2/3 md:self-center rounded-md">
                 <div className="py-3 mx-auto">
                     <div className="flex items-center justify-center">
-                        <ul className="flex flex-row mt-0 mr-6 space-x-2 md:space-x-8 text-sm md:text-lg font-medium">
-                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
-                                <Link href="/" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md" aria-current="page">Home</Link>
+                        <ul className="flex flex-row mt-0 space-x-2 md:space-x-8 text-sm md:text-lg font-medium">
+                            <li className="text-gray-900 font-semibold p-1 hover:bg-gray-200 hover:rounded-md">
+                                <Link href="/"aria-current="page">Home</Link>
                             </li>
-                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
-                                <Link href="verifyUser" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Verify User</Link>
+                            <li className="text-gray-900 font-semibold p-1 hover:bg-gray-200 hover:rounded-md">
+                                <Link href="/verifyUser">Verify User</Link>
                             </li>
-                            <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
+                            <li className="text-gray-900 font-semibold p-1 hover:bg-gray-200 hover:rounded-md">
                                 <Link href="#" >Verify Transaction</Link>
                             </li>
                         </ul>
@@ -80,7 +80,7 @@ function Navbar(){
             <nav className="bg-secondary w-full md:mx-10 md:w-2/3 md:self-center rounded-md">
                 <div className="py-3 mx-auto">
                     <div className="flex items-center justify-center">
-                        <ul className="flex flex-row mt-0 mr-6 space-x-2 md:space-x-8 text-sm md:text-lg font-medium">
+                        <ul className="flex flex-row mt-0 space-x-2 md:space-x-8 text-sm md:text-lg font-medium">
                             <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
                                 <Link href="/" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md" aria-current="page">Home</Link>
                             </li>
