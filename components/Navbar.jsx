@@ -85,7 +85,7 @@ function Navbar(){
                                 <Link href="/" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md" aria-current="page">Home</Link>
                             </li>
                             <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
-                                <Link href="#" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Transfer</Link>
+                                <Link href="/transfer" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Transfer</Link>
                             </li>
                             <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
                                 <Link href="#" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Request</Link>

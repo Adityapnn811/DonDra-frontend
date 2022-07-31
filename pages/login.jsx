@@ -50,6 +50,7 @@ export default function Login(){
             setCookie('role', data.user.role);
             setCookie('nama', data.user.nama);
             setCookie('saldo', data.user.saldo)
+            setCookie('id', data.user.id)
             router.push('/')
         } else {
             setError(data.error)

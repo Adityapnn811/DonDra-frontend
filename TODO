@@ -9,7 +9,9 @@
 - Kurang jwt (udah)
 - error message saat login (udah)
 - Kurang page verifyUser (udah)
-- Tampilin dropdown mata uang yang tersedia apa aja, trus nanti konversi dari mata uang asing ke IDR dari frontend aja
+- Tampilin dropdown mata uang yang tersedia apa aja, trus nanti konversi dari mata uang asing ke IDR dari frontend aja\
+- BIKIN PAGE TRANSACTION
+- SETUP REDIS PAKE UPSTASH
 
 Homenya admin itu search user
 homenya user itu profil dan saldo

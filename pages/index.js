@@ -8,6 +8,7 @@ import {Navbar} from '../components/Navbar';
 import { hasCookie, getCookie } from 'cookies-next';
 import AdminDashboard from '../components/AdminDashboard';
 
+
 export default function Home() {
   let page = "aa"
   const [isLoading, setLoading] = useState(false)
@@ -43,7 +44,7 @@ export default function Home() {
       </Head>
 
       <main className="flex w-full min-h-screen flex-col">
-           <Navbar /> 
+          <Navbar /> 
           <AdminDashboard />
       </main>
 

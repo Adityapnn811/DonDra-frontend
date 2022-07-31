@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { getCookie, hasCookie } from 'cookies-next';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import useSwR from 'swr';
+import useSWR from 'swr';
 
 const role = getCookie('role');
 
@@ -31,7 +31,7 @@ export default function VerifyUser(){
         } 
     })
     // get unverified users
-    const {data: users, _error} = useSwR(url, fetcher)
+    const {data: users, _error} = useSWR(url, fetcher)
 
     return (
         <div>

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getCookie, hasCookie } from 'cookies-next';
 import UserCard from "./UserCard";
-import Bluebird from "bluebird";
 import redis from 'redis'
 import useSWR from "swr";
 import next from "next";

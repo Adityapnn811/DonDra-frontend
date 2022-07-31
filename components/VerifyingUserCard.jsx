@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { getCookie } from "cookies-next"
 import Router from "next/router"
 
@@ -31,9 +30,9 @@ export default function VerifyingUserCard({photo, nama, id, username}){
             </div>
             <div className={`ml-4 flex flex-1 flex-row content-between w-auto`}>
                 <div className="flex flex-col content-between m-3 grow">
-                    <h1 className="text-2xl font-semibold">{nama}</h1>
-                    <p className={`text-md md:text-xl text-black`}>{id}</p>
-                    <p className={`text-md md:text-xl text-black`}>{username}</p>
+                <h1 className="text-2xl font-semibold mb-2">{nama}</h1>
+                    <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Rekening</div><div>: {id}</div></p>
+                    <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Username</div><div>: {username}</div></p>
                 </div>
                 <div className="flex ">
                     <button className="text-xl m-4 bg-green-500 py-2 px-4 rounded-lg hover:bg-emerald-500 text-white font-semibold border-green-500 border-2" onClick={handleVerify}>Verify</button>
