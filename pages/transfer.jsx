@@ -8,7 +8,6 @@ import useSWR from 'swr';
 import getCurrencies from './api/getCurrencies';
 import Card from '../components/Card';
 import { isInteger } from 'tls';
-// import { JSONParser } from 'formidable/parers';
 
 
 export default function Transfer({currencies, rates}) {
@@ -119,6 +118,7 @@ export default function Transfer({currencies, rates}) {
     }
 
     const handleSubmit = (e) => {
+        // post method dengan body berisi rekening pengirim, rekening penerima, nominal
         console.log("submit")
     }
 
