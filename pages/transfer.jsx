@@ -5,7 +5,7 @@ import { getCookie, hasCookie } from 'cookies-next';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import getCurrencies from './middleware/getCurrencies';
+import getCurrencies from './api/getCurrencies';
 import Card from '../components/Card';
 import { isInteger } from 'tls';
 // import { JSONParser } from 'formidable/parers';
