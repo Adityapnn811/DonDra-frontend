@@ -41,11 +41,9 @@ export default function Login(){
 
         const response = await fetch(endpoint, options);
         const data = await response.json();
-        console.log(data);
         // if success, set cookies and redirect to home
         if (data.success){
             // set token from data response
-            console.log(data.token);
             setCookie('token', data.token, { sameSite: 'none'});
             setCookie('role', data.user.role);
             setCookie('nama', data.user.nama);
