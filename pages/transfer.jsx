@@ -46,6 +46,7 @@ export default function Transfer({currencies, rates}) {
     const [nominalInIDR, setNominalInIDR] = useState(0);
     const [currency, setCurrency] = useState('AED');
     const [buttonValidClicked, setButtonValidClicked] = useState(false);
+    const [transferSuccess, setTransferSuccess] = useState(false);
 
     // change currency json format
     const currencyList = []
@@ -117,9 +118,31 @@ export default function Transfer({currencies, rates}) {
         setNominalInIDR(nominal / ratesMap.get(e.target.value))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         // post method dengan body berisi rekening pengirim, rekening penerima, nominal
-        console.log("submit")
+        e.preventDefault()
+        const url = "https://dondra-backend.herokuapp.com/transfer"
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getCookie('token')}`,
+                'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
+            },
+            body: JSON.stringify({
+                rekPengirim: getCookie('id'),
+                rekPenerima: rekening,
+                nominal: nominalInIDR,
+            })
+        })
+        const data = await response.json()
+        if (data.success){
+            setTransferSuccess(true)
+        } else {
+            alert("Transfer failed")
+            setTransferSuccess(false)
+        }
     }
 
     // Function to decide whether the datas are valid
@@ -175,6 +198,7 @@ export default function Transfer({currencies, rates}) {
                         {isValid() ? <button className='bg-green-800 rounded py-2 hover:bg-green-700 font-semibold my-3 text-white' type='submit' onClick={handleSubmit}>Transfer</button> 
                         : 
                         <button className='bg-green-800 rounded py-2 font-semibold my-3 text-white' type='submit' disabled>Transfer</button>}
+                        {transferSuccess ? <div className='text-green-800 font-bold'>Transfer Success</div> : <></>}
                     </div>
                 </Card>
             </main>
