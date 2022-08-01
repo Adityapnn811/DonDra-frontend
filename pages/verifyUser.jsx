@@ -10,7 +10,7 @@ const role = getCookie('role');
 
 const fetcher = async () => {
     return fetch('https://dondra-backend.herokuapp.com/getUnverifiedUsers', {
-        method: 'PUT',
+        method: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',

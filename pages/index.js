@@ -50,7 +50,7 @@ export default function Home() {
 
       </div>
     )}
-  else {
+  else if (getCookie('role') === "user") {
     return (
       <div>
         <Head>

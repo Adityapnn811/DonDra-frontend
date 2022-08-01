@@ -46,7 +46,7 @@ export default function Login(){
         if (data.success){
             // set token from data response
             console.log(data.token);
-            setCookie('token', data.token);
+            setCookie('token', data.token, { sameSite: 'none'});
             setCookie('role', data.user.role);
             setCookie('nama', data.user.nama);
             setCookie('saldo', data.user.saldo)

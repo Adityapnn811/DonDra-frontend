@@ -49,7 +49,7 @@ function Navbar(){
                                 <Link href="/verifyUser">Verify User</Link>
                             </li>
                             <li className="text-gray-900 font-semibold p-1 hover:bg-gray-200 hover:rounded-md">
-                                <Link href="#" >Verify Transaction</Link>
+                                <Link href="/verifyTransaction" >Verify Transaction</Link>
                             </li>
                         </ul>
                     </div>
@@ -88,10 +88,10 @@ function Navbar(){
                                 <Link href="/transfer" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Transfer</Link>
                             </li>
                             <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
-                                <Link href="#" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Request</Link>
+                                <Link href="/request" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">Request</Link>
                             </li>
                             <li className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">
-                                <Link href="#" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">History</Link>
+                                <Link href="/history" className="text-gray-900 font-semibold p-2 hover:bg-gray-200 hover:rounded-md">History</Link>
                             </li>
                         </ul>
                     </div>

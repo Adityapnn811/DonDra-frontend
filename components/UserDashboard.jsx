@@ -5,7 +5,7 @@ import UserCard from "./UserCard";
 import useSWR from "swr";
 
 // DONT FORGET TO RETURN in fetcher
-const id = getCookie('id')
+const id = parseInt(getCookie('id'))
 const fetcher = async () => {
     return fetch(`https://dondra-backend.herokuapp.com/getAllUsers/${id}`, {
         method: 'GET',
@@ -33,6 +33,7 @@ export default function UserDashboard(){
 
     return(
         <div className="my-4 justify-center md:mx-10 md:w-2/3 md:self-center rounded-lg flex flex-col">
+            <h1 className="font-bold text-3xl text-white self-center">PROFILE PAGE</h1>
             {user? 
             <UserCard nama={user.nama} id={user.id} photo={user.fotoKTP} username={user.username} saldo={user.saldo} isVerified={user.isVerified} key={user.id}/> 
             : <></>}

@@ -33,7 +33,6 @@ export default function Login(){
         })
         imageInBase64.then((imageData) => {
             setFotoKTP(imageData);
-            console.log(imageData)
         }
         )
     }
@@ -63,7 +62,6 @@ export default function Login(){
 
         const response = await fetch(endpoint, options);
         const data = await response.json();
-        console.log(data);
         if (response.status === 200) {
             alert('Register Success. You will be redirected to the login page')
             router.push('/login');

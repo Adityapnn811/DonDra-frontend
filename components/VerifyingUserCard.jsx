@@ -1,10 +1,13 @@
 import { getCookie } from "cookies-next"
+import { useState } from "react"
 import Router from "next/router"
 
 export default function VerifyingUserCard({photo, nama, id, username}){
+    const [verifying, setVerifying] = useState(false)
     const handleVerify = async () => {
+        setVerifying(true)
         await fetch(`https://dondra-backend.herokuapp.com/verifyUser/${id}`, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -20,6 +23,7 @@ export default function VerifyingUserCard({photo, nama, id, username}){
                 }
             })
         })
+        setVerifying(false)
     }
 
 
@@ -35,7 +39,10 @@ export default function VerifyingUserCard({photo, nama, id, username}){
                     <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Username</div><div>: {username}</div></p>
                 </div>
                 <div className="flex ">
+                    {!verifying ? 
                     <button className="text-xl m-4 bg-green-500 py-2 px-4 rounded-lg hover:bg-emerald-500 text-white font-semibold border-green-500 border-2" onClick={handleVerify}>Verify</button>
+                    :
+                    <button className="text-xl m-4 bg-green-500 py-2 px-4 rounded-lg text-white font-semibold border-green-500 border-2" disabled>Verifying, please wait</button>}
                 </div>
             </div>
         </div>
