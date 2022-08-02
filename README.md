@@ -34,3 +34,6 @@ This is the repository for the frontend of DonDra. This website is deployed on V
 4. You can transfer to other user from Transfer page. You have to verify the user id to which you want to transfer. After that, you can choose the currency you want and type in the amount you want to transfer. You cannot transfer to yourself or when the user is not valid or you don't have enough balance.
 5. You can request to add or substract balance from Request page. Select the request type. Then, choose the currency and type in the amount you want. You cannot send request if you don't have enough balance when you want to substract.
 6. You can view all your transaction history, including moneytory and transfer, from History page. The maximum number of history in one page is 5.
+
+# Author
+- <a href = "https://github.com/Adityapnn811">Aditya Prawira Nugroho (13520049)</a>
