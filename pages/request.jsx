@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import getCurrencies from './api/getCurrencies';
 import Card from '../components/Card';
-import { isInteger } from 'tls';
 
 
 export default function Request({currencies, rates}) {
@@ -60,8 +59,15 @@ export default function Request({currencies, rates}) {
 
     // handler input
     const handleNominal = (e) => {
-        setNominal(parseFloat(e.target.value))
-        setNominalInIDR(parseFloat(e.target.value) / ratesMap.get(currency))
+        if (parseFloat(e.target.value) < 0) {
+            document.getElementById('type').value = 'notIncome'
+            setIsIncome(false)
+            setNominal(parseFloat(e.target.value) * -1)
+            setNominalInIDR(parseFloat(e.target.value) / ratesMap.get(currency) * -1)
+        } else {
+            setNominal(parseFloat(e.target.value))
+            setNominalInIDR(parseFloat(e.target.value) / ratesMap.get(currency))
+        }
     }
 
     const handleCurrency = (e) => {
@@ -70,7 +76,11 @@ export default function Request({currencies, rates}) {
     }
 
     const handleType = (e) => {
-        setIsIncome(e.target.value)
+        if (e.target.value === 'income') {
+            setIsIncome(true)
+        } else {
+            setIsIncome(false)
+        }
     }
 
     const handleSubmit = async (e) => {
@@ -104,13 +114,16 @@ export default function Request({currencies, rates}) {
 
     // Function to decide whether the datas are valid
     const isValid = () => {
-        if (nominalInIDR !== 0 && ((nominalInIDR < saldo && !isIncome) || isIncome)){
-            return true
+        if (!isIncome) {
+            if (nominalInIDR > saldo) {
+                return false
+            } else {
+                return true
+            }
         } else {
-            return false
+            return true
         }
     }
-
     return (
         <div>
             <Head>
@@ -131,8 +144,8 @@ export default function Request({currencies, rates}) {
                     <div className='flex-1 w-full md:w-2/3 self-center mb-3'>
                         <label className="block mb-2 text-lg font-semibold text-black">Request Type</label>
                         <select id="type" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block py-2.5 w-full mb-3 md:mb-0 md:mr-2" onChange={handleType}>
-                            <option key="1" value={false}>Substract</option>
-                            <option key="2" value={true}>Add</option>
+                            <option key="1" value="notIncome">Substract</option>
+                            <option key="2" value="income">Add</option>
                         </select>
                     </div>
                     <div className='flex w-full md:w-2/3 self-center flex-col mt-2'>
@@ -146,7 +159,7 @@ export default function Request({currencies, rates}) {
                             <input id="nominal" aria-describedby="helper-text-explanation" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="15.5" type='number' onChange={handleNominal} />
                         </div>
                         <div className='mt-2'>In Indonesian Rupiah (IDR) : Rp{!isNaN(nominalInIDR) ? nominalInIDR : 0}</div>
-                        {nominalInIDR > saldo && !isIncome ? <div className='text-red-800 font-bold'>You don&apos;t have enough balance</div> : <></>}
+                        {(nominalInIDR > saldo && !isIncome) ? <div className='text-red-800 font-bold'>You don&apos;t have enough balance</div> : <></>}
                         {isValid() ? <button className='bg-green-800 rounded py-2 hover:bg-green-700 font-semibold my-3 text-white' type='submit' onClick={handleSubmit}>Request</button> 
                         : 
                         <button className='bg-green-800 rounded py-2 font-semibold my-3 text-white' type='submit' disabled>Request</button>}

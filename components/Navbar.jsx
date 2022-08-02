@@ -4,7 +4,7 @@ import deleteAllCookie from "../pages/middleware/deleteAllCookie";
 import { useEffect } from "react";
 
 function isAdmin(){
-    if(hasCookie('role')){
+    if(getCookie('role')){
         if (getCookie('role') === 'admin'){
             return true
         } else {

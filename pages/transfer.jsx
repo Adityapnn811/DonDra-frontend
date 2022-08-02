@@ -15,7 +15,7 @@ export default function Transfer({currencies, rates}) {
     useEffect( () => {
         if (!hasCookie('token')) {
             router.push("/login")
-        } else if (!currencies || !rates) {
+        } else if (currencies === null || rates === null) {
             router.push("/transfer")
         } else {
             const id = getCookie('id')
@@ -99,7 +99,7 @@ export default function Transfer({currencies, rates}) {
         setButtonValidClicked(true)
     }
     const handleRekening = (e) => {
-        if (parseFloat(e.target.value) === 1 || parseFloat(e.target.value) === parseFloat(getCookie('id'))){
+        if (parseFloat(e.target.value) === 1 || parseFloat(e.target.value) === parseFloat(getCookie('id'))) {
             setRekening(0)
         } else {
             setRekening(parseFloat(e.target.value))

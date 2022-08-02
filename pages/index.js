@@ -11,9 +11,11 @@ import UserDashboard from '../components/UserDashboard';
 
 export default function Home() {
   const [isLoading, setLoading] = useState(false)
+  const [role, setRole] = useState('')
   const router = useRouter()
   useEffect(() => {
     setLoading(true)
+    setRole(getCookie('role'))
     if (!hasCookie('token')) {
       router.push("/login")
     }
@@ -31,7 +33,7 @@ export default function Home() {
         </Head>
       </div>
   )
-  if (getCookie('role') === 'admin') {
+  if (role === 'admin') {
     return (
       <div>
         <Head>
@@ -50,7 +52,7 @@ export default function Home() {
 
       </div>
     )}
-  else if (getCookie('role') === "user") {
+  else if (role === "user") {
     return (
       <div>
         <Head>

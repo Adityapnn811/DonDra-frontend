@@ -46,7 +46,7 @@ export default function VerifyUser(){
 
             <main className='flex w-full min-h-screen flex-col'>
                     <Navbar />
-                    {users ? users.map(user => {
+                    {users != null && users.length > 0 ? users.map(user => {
                         return <VerifyingUserCard nama={user.nama} id={user.id} photo={user.fotoKTP} username={user.username} key={user.id}/>
                     }) : <div className='text-2xl text-white font-bold self-center mt-10'>No Incoming Request</div>}
             </main>

@@ -17,7 +17,7 @@ export default function VerifyingUserCard({photo, nama, id, username}){
         }).then(res => {
             res.json().then(data => {
                 if (data.success) {
-                    Router.push("/verifyUser")
+                    Router.replace(Router.asPath)
                 } else {
                     alert('User failed to verify')
                 }

@@ -45,10 +45,10 @@ export default function Login(){
         if (data.success){
             // set token from data response
             setCookie('token', data.token, { sameSite: 'none'});
-            setCookie('role', data.user.role);
-            setCookie('nama', data.user.nama);
-            setCookie('saldo', data.user.saldo)
+            setCookie('nama', data.user.nama, { sameSite: 'none'});
+            setCookie('saldo', data.user.saldo, { sameSite: 'none'})
             setCookie('id', data.user.id)
+            setCookie('role', data.user.role, { sameSite: 'none'})
             router.push('/')
         } else {
             setError(data.error)
