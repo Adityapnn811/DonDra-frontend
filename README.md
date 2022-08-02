@@ -1,5 +1,5 @@
 # DonDra Frontend
-This is the repository for the frontend of DonDra
+This is the repository for the frontend of DonDra. This website is deployed on Vercel. Visit <a>dondra.vercel.app</a> to see it in action.
 
 # How to run this project
 ## Requirements
