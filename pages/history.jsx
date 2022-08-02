@@ -1,4 +1,4 @@
-import HistoryCard from '../components/historyCard';
+import HistoryCard from '../components/HistoryCard';
 import { Navbar } from '../components/Navbar';
 import Head from 'next/head'
 import { getCookie, hasCookie, setCookie } from 'cookies-next';
