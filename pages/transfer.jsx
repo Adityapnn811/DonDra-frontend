@@ -110,7 +110,6 @@ export default function Transfer({currencies, rates}) {
     const handleNominal = (e) => {
         setNominal(parseFloat(e.target.value))
         setNominalInIDR(parseFloat(e.target.value) / ratesMap.get(currency))
-        console.log(nominalInIDR)
     }
 
     const handleCurrency = (e) => {

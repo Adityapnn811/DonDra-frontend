@@ -5,7 +5,6 @@ export default async function getCurrencies(getRates) {
         redis.get("rates", async (error, rates) => {
             if (error) console.log(error)
             if (rates === null) {
-                console.log("Getting rates from API");
                 let myHeaders = new Headers();
                 myHeaders.append("apikey", "XziOZtA0GGfi4wonGizQxxzSixUXJv9f");
                 
@@ -25,7 +24,6 @@ export default async function getCurrencies(getRates) {
         redis.get("currencies", async (error, currencies) => {
             if (error) console.log(error)
             if (currencies === null) {
-                console.log("Getting currencies from API");
                 let myHeaders = new Headers();
                 myHeaders.append("apikey", "XziOZtA0GGfi4wonGizQxxzSixUXJv9f");
                 
