@@ -36,7 +36,7 @@ This is the repository for the frontend of DonDra. This website is deployed on V
 6. You can view all your transaction history, including moneytory and transfer, from History page. The maximum number of history in one page is 5.
 
 # Design Pattern
-1. Singleton
+1. Singleton<br />
 Singleton design pattern is used in the form of a single instance of redis object with the purpose of setting and getting data from redis.
 
 # Author
