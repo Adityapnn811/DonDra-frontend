@@ -35,5 +35,9 @@ This is the repository for the frontend of DonDra. This website is deployed on V
 5. You can request to add or substract balance from Request page. Select the request type. Then, choose the currency and type in the amount you want. You cannot send request if you don't have enough balance when you want to substract.
 6. You can view all your transaction history, including moneytory and transfer, from History page. The maximum number of history in one page is 5.
 
+# Design Pattern
+1. Singleton
+Singleton design pattern is used in the form of a single instance of redis object with the purpose of setting and getting data from redis.
+
 # Author
 - <a href = "https://github.com/Adityapnn811">Aditya Prawira Nugroho (13520049)</a>
