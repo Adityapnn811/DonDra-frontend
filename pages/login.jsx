@@ -45,11 +45,11 @@ export default function Login(){
         // if success, set cookies and redirect to home
         if (data.success){
             // set token from data response
-            setCookie('token', data.token, { sameSite: 'none'});
-            setCookie('nama', data.user.nama, { sameSite: 'none'});
-            setCookie('saldo', data.user.saldo, { sameSite: 'none'})
+            setCookie('token', data.token);
+            setCookie('nama', data.user.nama);
+            setCookie('saldo', data.user.saldo)
             setCookie('id', data.user.id)
-            setCookie('role', data.user.role, { sameSite: 'none'})
+            setCookie('role', data.user.role)
             router.push('/')
         } else {
             setError(data.error)
