@@ -12,10 +12,10 @@ export default function HistoryCard({nama, id, username, isIncome, idTransaction
                     <div className="flex flex-col content-between m-3 grow">
                         <h1 className="text-2xl font-semibold mb-2">MONEYTORING</h1>
                         <h1 className="text-xl font-semibold mb-2">{isIncome ? "Add Balance Request" : "Substract Balance Request"}</h1>
-                        <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Nominal</div><div>: {nominal}</div></p>
-                        <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Date</div><div>: {date}</div></p>
-                        <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Verification Status</div><div>: {isVerified ? "Verified" : "Not Verified"}</div></p>
-                        {isVerified ? <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Approval Status</div><div>: {isRejected ? "Rejected" : "Approved"}</div></p> : <></>}
+                        <p className={`text-md md:text-xl text-black flex flex-col md:flex-row`}><div className="w-1/4">Nominal</div><div>: {nominal}</div></p>
+                        <p className={`text-md md:text-xl text-black flex flex-col md:flex-row`}><div className="w-1/4">Date</div><div>: {date}</div></p>
+                        <p className={`text-md md:text-xl text-black flex flex-col md:flex-row`}><div className="w-1/4">Verification Status</div><div>: {isVerified ? "Verified" : "Not Verified"}</div></p>
+                        {isVerified ? <p className={`text-md md:text-xl text-black flex flex-col md:flex-row`}><div className="w-1/4">Approval Status</div><div>: {isRejected ? "Rejected" : "Approved"}</div></p> : <></>}
                     </div>
                 </div>
             </div>
@@ -28,8 +28,8 @@ export default function HistoryCard({nama, id, username, isIncome, idTransaction
                     <div className="flex flex-col content-between m-3 grow">
                         <h1 className="text-2xl font-semibold mb-2">TRANSFER {isIncome ? "IN" : "OUT"}</h1>
                         <h1 className="text-xl font-semibold mb-2">{isIncome ? "From" : "To"} {nama}</h1>
-                        <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Nominal</div><div>: {nominal}</div></p>
-                        <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Date</div><div>: {date}</div></p>
+                        <p className={`text-md md:text-xl text-black flex flex-col md:flex-row`}><div className="w-1/4">Nominal</div><div>: {nominal}</div></p>
+                        <p className={`text-md md:text-xl text-black flex flex-col md:flex-row`}><div className="w-1/4">Date</div><div>: {date}</div></p>
                     </div>
                 </div>
             </div>

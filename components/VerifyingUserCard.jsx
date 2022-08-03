@@ -35,8 +35,8 @@ export default function VerifyingUserCard({photo, nama, id, username}){
             <div className={`ml-4 flex flex-1 flex-row content-between w-auto`}>
                 <div className="flex flex-col content-between m-3 grow">
                 <h1 className="text-2xl font-semibold mb-2">{nama}</h1>
-                    <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Rekening</div><div>: {id}</div></p>
-                    <p className={`text-md md:text-xl text-black flex`}><div className="w-1/4">Username</div><div>: {username}</div></p>
+                    <p className={`text-md md:text-xl text-black flex flex-col md:flex-row`}><div className="w-1/4">Rekening</div><div>: {id}</div></p>
+                    <p className={`text-md md:text-xl text-black flex flex-col md:flex-row`}><div className="w-1/4">Username</div><div>: {username}</div></p>
                 </div>
                 <div className="flex ">
                     {!verifying ? 
