@@ -16,7 +16,6 @@ export default async function getCurrencies(getRates) {
                 
                 let response = await fetch("https://api.apilayer.com/exchangerates_data/latest?symbols=&base=IDR", requestOptions).then(res => res.text());
                 redis.setex("rates", 3600 * 24, response);
-                return (redis.get("rates"))
             }
         })
         return (redis.get("rates"))
@@ -35,7 +34,6 @@ export default async function getCurrencies(getRates) {
                 
                 let response = await fetch("https://api.apilayer.com/exchangerates_data/symbols", requestOptions).then(res => res.text());
                 redis.setex("currencies", 3600 * 24, response);
-                return (redis.get("currencies"))
             }
         })
         return (redis.get("currencies"))
