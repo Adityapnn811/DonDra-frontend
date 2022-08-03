@@ -34,6 +34,13 @@ export default function Request({currencies, rates}) {
         }
         
     })
+    const [saldo, setSaldo] = useState(0)
+    const [error, setError] = useState('');
+    const [nominal, setNominal] = useState(0);
+    const [nominalInIDR, setNominalInIDR] = useState(0);
+    const [currency, setCurrency] = useState('AED');
+    const [requestSuccess, setRequestSuccess] = useState(false);
+    const [isIncome, setIsIncome] = useState(false);
 
     if (!currencies || !rates) {
         return (
@@ -56,13 +63,6 @@ export default function Request({currencies, rates}) {
         )
     }
 
-    const [saldo, setSaldo] = useState(0)
-    const [error, setError] = useState('');
-    const [nominal, setNominal] = useState(0);
-    const [nominalInIDR, setNominalInIDR] = useState(0);
-    const [currency, setCurrency] = useState('AED');
-    const [requestSuccess, setRequestSuccess] = useState(false);
-    const [isIncome, setIsIncome] = useState(false);
 
     // change currency json format
     const currencyList = []

@@ -35,6 +35,17 @@ export default function Transfer({currencies, rates}) {
         }
         
     })
+    const [saldo, setSaldo] = useState(0)
+    const [userValid, setUserValid] = useState(false);
+    const [userName, setUserName] = useState('');
+    const [validatingUser, setValidatingUser] = useState(false);
+    const [error, setError] = useState('');
+    const [rekening, setRekening] = useState('');
+    const [nominal, setNominal] = useState(0);
+    const [nominalInIDR, setNominalInIDR] = useState(0);
+    const [currency, setCurrency] = useState('AED');
+    const [buttonValidClicked, setButtonValidClicked] = useState(false);
+    const [transferSuccess, setTransferSuccess] = useState(false);
 
     if (!currencies || !rates) {
         return (
@@ -57,17 +68,6 @@ export default function Transfer({currencies, rates}) {
         )
     }
 
-    const [saldo, setSaldo] = useState(0)
-    const [userValid, setUserValid] = useState(false);
-    const [userName, setUserName] = useState('');
-    const [validatingUser, setValidatingUser] = useState(false);
-    const [error, setError] = useState('');
-    const [rekening, setRekening] = useState('');
-    const [nominal, setNominal] = useState(0);
-    const [nominalInIDR, setNominalInIDR] = useState(0);
-    const [currency, setCurrency] = useState('AED');
-    const [buttonValidClicked, setButtonValidClicked] = useState(false);
-    const [transferSuccess, setTransferSuccess] = useState(false);
 
     // change currency json format
     const currencyList = []
