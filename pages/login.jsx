@@ -34,12 +34,13 @@ export default function Login(){
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'https://dondra.vercel.app/'
             },
             body: JSONdata
         }
 
-        const response = await fetch(endpoint, options);
+        const response = await fetch(endpoint, options).catch(err => console.log(err));
         const data = await response.json();
         // if success, set cookies and redirect to home
         if (data.success){
